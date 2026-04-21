@@ -1,59 +1,164 @@
+/* --- Paleta de Colores UTEC y Tipografía --- */
 :root {
-    --primary: #003366; /* Azul UTEC aproximado */
-    --accent: #27ae60;
-    --light: #f4f7f6;
+    --utec-azul-oscuro: #001C3D; /* Cabecera y footer */
+    --utec-turquesa: #00B5B5;    /* Acentos y botones */
+    --utec-blanco: #FFFFFF;       /* Fondo general y tarjetas */
+    --text-main: #1A1A1A;       /* Texto oscuro */
+    --text-muted: #555555;      /* Texto secundario */
+    --shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombras como en la inspo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    line-height: 1.6;
-    background-color: var(--light);
+    background-color: var(--utec-blanco);
+    color: var(--text-main);
+}
+
+/* --- Cabecera y Navegación (Dark Mode UTEC) --- */
+header {
+    background-color: var(--utec-azul-oscuro);
+    color: var(--utec-blanco);
+    padding: 20px 10%;
 }
 
 nav {
-    background: var(--primary);
-    color: white;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 5%;
-    position: sticky;
-    top: 0;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-nav ul li a { color: white; text-decoration: none; }
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-header {
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--utec-turquesa);
+}
+
+/* --- Hero Section (Texto de bienvenida) --- */
+.hero {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), url('fondo-ingenieria.jpg');
-    background-size: cover;
-    color: white;
+    padding: 30px 0 100px 0;
 }
 
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+}
+
+/* --- Contenido Principal (Estilo Inspo: Tarjetas Blancas) --- */
+main {
+    padding: 60px 10%;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--utec-azul-oscuro);
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--utec-turquesa);
+}
+
+/* --- Grid de Competencias (Estilo "Card" de tu inspo) --- */
 .grid-competencias {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
+    background: var(--utec-blanco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0,0,0,0.05); /* Borde suave */
 }
 
-.btn {
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,181,181,0.2); /* Sombra turquesa al hover */
+}
+
+.card .icon {
+    font-size: 2rem;
+    color: var(--utec-turquesa);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: var(--utec-azul-oscuro);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.btn-card {
     display: inline-block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    background: var(--accent);
-    color: white;
+    padding: 10px 20px;
+    background-color: var(--utec-turquesa);
+    color: var(--utec-blanco);
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-card:hover {
+    background-color: #008E8E; /* Turquesa más oscuro */
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #F4F7F6;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
