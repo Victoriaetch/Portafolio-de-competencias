@@ -1,1 +1,59 @@
+:root {
+    --primary: #003366; /* Azul UTEC aproximado */
+    --accent: #27ae60;
+    --light: #f4f7f6;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: var(--light);
+}
+
+nav {
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+}
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: white; text-decoration: none; }
+
+header {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), url('fondo-ingenieria.jpg');
+    background-size: cover;
+    color: white;
+}
+
+.grid-competencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
