@@ -1,11 +1,11 @@
-/* --- Paleta de Colores UTEC y Tipografía --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
 :root {
-    --utec-azul-oscuro: #001C3D; /* Cabecera y footer */
-    --utec-turquesa: #00B5B5;    /* Acentos y botones */
-    --utec-blanco: #FFFFFF;       /* Fondo general y tarjetas */
-    --text-main: #1A1A1A;       /* Texto oscuro */
-    --text-muted: #555555;      /* Texto secundario */
-    --shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombras como en la inspo */
+    --utec-navy: #001C3D;
+    --utec-teal: #00B5B5;
+    --bg-light: #fcfcfc;
+    --text-dark: #121212;
+    --text-gray: #666;
 }
 
 * {
@@ -15,150 +15,160 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--utec-blanco);
-    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- Cabecera y Navegación (Dark Mode UTEC) --- */
+/* --- Header Estilo Editorial --- */
 header {
-    background-color: var(--utec-azul-oscuro);
-    color: var(--utec-blanco);
-    padding: 20px 10%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 8%;
+    background-color: var(--utec-navy);
+    color: white;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 40px;
 }
 
 nav ul li a {
-    color: rgba(255,255,255,0.8);
+    color: white;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: var(--utec-turquesa);
+nav ul li a:hover { opacity: 1; }
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif; /* Toque elegante */
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    max-width: 800px;
 }
 
-/* --- Hero Section (Texto de bienvenida) --- */
-.hero {
-    text-align: center;
-    padding: 30px 0 100px 0;
-}
-
-.hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.8);
+.hero-text p {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    opacity: 0.6;
     font-weight: 300;
 }
 
-/* --- Contenido Principal (Estilo Inspo: Tarjetas Blancas) --- */
+/* --- Main Content --- */
 main {
-    padding: 60px 10%;
+    padding: 100px 8%;
 }
 
-h2 {
-    font-size: 2rem;
-    color: var(--utec-azul-oscuro);
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 10px;
+.section-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--utec-teal);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
 }
 
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background-color: var(--utec-turquesa);
-}
-
-/* --- Grid de Competencias (Estilo "Card" de tu inspo) --- */
-.grid-competencias {
+/* --- Grid de Tarjetas (Como en tu Inspo) --- */
+.competencias-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px;
+    margin-top: 50px;
 }
 
 .card {
-    background: var(--utec-blanco);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid rgba(0,0,0,0.05); /* Borde suave */
+    grid-column: span 4; /* 3 columnas */
+    background: white;
+    padding: 50px 40px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Sombra muy suave */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px;
 }
+
+@media (max-width: 900px) { .card { grid-column: span 6; } }
+@media (max-width: 600px) { .card { grid-column: span 12; } }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,181,181,0.2); /* Sombra turquesa al hover */
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,28,61,0.08);
 }
 
-.card .icon {
-    font-size: 2rem;
-    color: var(--utec-turquesa);
+.card-number {
+    font-size: 0.8rem;
+    color: #ddd;
+    font-weight: 600;
     margin-bottom: 20px;
 }
 
 .card h3 {
-    color: var(--utec-azul-oscuro);
-    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
     margin-bottom: 15px;
+    color: var(--utec-navy);
 }
 
 .card p {
-    color: var(--text-muted);
     font-size: 0.95rem;
-    margin-bottom: 25px;
+    color: var(--text-gray);
+    margin-bottom: 30px;
 }
 
-.btn-card {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--utec-turquesa);
-    color: var(--utec-blanco);
+.card-link {
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.btn-card:hover {
-    background-color: #008E8E; /* Turquesa más oscuro */
+.card-link::after {
+    content: '→';
+    transition: transform 0.3s;
 }
 
-/* --- Footer --- */
+.card-link:hover::after {
+    transform: translateX(5px);
+}
+
 footer {
-    background-color: #F4F7F6;
-    color: var(--text-muted);
+    padding: 60px 8%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+    color: #999;
     text-align: center;
-    padding: 30px 0;
-    font-size: 0.85rem;
-    border-top: 1px solid rgba(0,0,0,0.05);
 }
